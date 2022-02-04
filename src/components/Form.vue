@@ -1,47 +1,46 @@
 <template>
-    <form @submit.prevent="FormHandler">
-        <input type="text" placeholder="Income Description..." v-model="formData.desc">
-        <input type="number" placeholder="Value..." v-model="formData.value">
-        <input type="date" placeholder="Date..." v-model="formData.date">
-        <input type="submit" value="SUBMIT">
-    </form>
+  <form @submit.prevent="FormHandler">
+    <input type="text" placeholder="Income Description..." v-model="formData.desc" />
+    <input type="number" placeholder="Income Value..." v-model="formData.value" />
+    <input type="date" placeholder="Income Date..." v-model="formData.date" />
+    <input type="submit" value="SUBMIT" />
+  </form>
 </template>
 
 <script>
-import {reactive} from 'vue'
+import { reactive } from 'vue';
 export default {
-    name: 'Form',
-    props: {
-        state: Object
-    },
-    setup(props, {emit}) {
-        const formData = reactive ({
-            desc: null,
-            value: null,
-            date:null
-        });
-
-        function FormHandler() {
-            emit("add-income", {
-                desc: formData.desc,
-                value: formData.value,
-                date: formData.date
-            });
-
-            formData.desc = null,
-            formData.value = null,
-            formData.date = null
-        }
-        return {
-            FormHandler,
-            formData
-        }
+  props: {
+    state: Object
+  },
+  setup (props, { emit }) {
+    const formData = reactive({
+      desc: null,
+      value: null,
+      date: null
+    });
+    function FormHandler () {
+      emit("add-income", {
+        desc: formData.desc,
+        value: formData.value,
+        date: formData.date
+      });
+      
+      formData.desc = null;
+      formData.value = null;
+      formData.date = null;
     }
+    // Return template data
+    return {
+      FormHandler,
+      formData
+    }
+  }
 }
 </script>
 
 <style scoped>
-    form {
+  form {
     display: flex;
     justify-content: center;
     margin-top: 30px;

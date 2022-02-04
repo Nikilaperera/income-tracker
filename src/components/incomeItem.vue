@@ -5,7 +5,7 @@
       {{ income.desc }}
     </div>
     <div class="price">
-      Rs.{{ income.value }}
+      Rs. {{ income.value }}
     </div>
     <div class="date">
       {{ formattedDate }}
