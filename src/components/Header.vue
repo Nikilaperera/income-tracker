@@ -1,6 +1,6 @@
 <template>
   <header>
-    <h1>Income Tracker</h1>
+    <h1>Income Tracker <span style="font-size: 15px; font-style:italic;">by Nikila Perera</span></h1>
     <div class="total-income">Rs. {{ totalIncome }}</div>
   </header>
 </template>
